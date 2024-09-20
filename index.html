@@ -48,7 +48,7 @@
 </head>
 <body>
   <button class="tezoro-btn">Open Tezoro widget</button>
-  <script src="http://dev-987354-integrate.tezoro.io/widget.js"></script>
+  <script src="https://dev-987354-integrate.tezoro.io/widget.js"></script>
   <script>
     document.querySelector('button').addEventListener('click', () => {
       document.body.insertAdjacentHTML('beforeend', `
@@ -62,9 +62,6 @@
       TezoroWidget.init('tezoro-widget');
     });
     document.body.addEventListener('click', (event) => {
-      console.log('event.target', event.target);
-      
-      
       if (event.target.classList.contains('tezoro-container')) {
         document.querySelector('.tezoro-container').remove();
       }
