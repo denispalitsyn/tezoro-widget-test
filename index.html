@@ -32,30 +32,20 @@
       left: 0;
       z-index: 1;
       background: rgba(0,0,0,.5);
-    }
-    
-    .tezoro-widget-wrapper {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      overflow: auto;
-      padding-top: 40px;
-      min-width: 500px;
+      display: flex;
+      justify-content: center;
+      padding-top: 10vh;
     }
   </style>
 </head>
 <body>
   <button class="tezoro-btn">Open Tezoro widget</button>
-  <script src="https://dev-987354-integrate.tezoro.io/widget.js"></script>
+  <script src="https://dev-987354-integrate.tezoro.io/widget.js?v=0.0.1"></script>
   <script>
     document.querySelector('button').addEventListener('click', () => {
       document.body.insertAdjacentHTML('beforeend', `
         <div class="tezoro-container">
-          <div class="tezoro-widget-wrapper">
-            <div id="tezoro-widget"></div>
-          </div>
+          <div id="tezoro-widget"></div>
         </div>
       `);
 
