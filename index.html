@@ -11,30 +11,9 @@
         padding: 0;
       }
 
-      .tezoro-btn {
-        display: block;
-        border: 1px solid #000;
-        padding: 8px;
-
-        background: transparent;
-
-        font-size: 16px;
-        margin: 40px auto 0;
-        cursor: pointer;
-      }
-      .tezoro-btn:hover {
-        opacity: 0.7;
-      }
-
       .tezoro-container {
-        position: fixed;
-        z-index: 1000;
         width: 100vw;
         height: 100vh;
-        top: 0;
-        left: 0;
-        overflow: hidden;
-        background-color: rgba(166, 174, 185, 0.7);
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
@@ -43,30 +22,22 @@
     </style>
   </head>
   <body>
-    <button class="tezoro-btn">Open Tezoro widget</button>
     <script>
       const script = document.createElement("script");
       script.src = `https://dev-987354-integrate.tezoro.io/widget.js?t=${Date.now()}`;
       document.body.appendChild(script);
 
       script.addEventListener("load", () => {
-        document.querySelector("button").addEventListener("click", () => {
-          document.body.insertAdjacentHTML(
-            "beforeend",
-            `
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          `
             <div class="tezoro-container">
               <div id="tezoro-widget"></div>
             </div>
           `
-          );
+        );
 
-          TezoroWidget.init("tezoro-widget");
-        });
-        document.body.addEventListener("click", (event) => {
-          if (event.target.classList.contains("tezoro-container")) {
-            document.querySelector(".tezoro-container").remove();
-          }
-        });
+        TezoroWidget.init("tezoro-widget");
       });
     </script>
   </body>
